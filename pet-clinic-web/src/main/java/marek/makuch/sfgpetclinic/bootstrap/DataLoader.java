@@ -3,14 +3,12 @@ package marek.makuch.sfgpetclinic.bootstrap;
  * @author Marecki
  */
 
-import model.Owner;
-import model.Vet;
+import marek.makuch.sfgpetclinic.model.Owner;
+import marek.makuch.sfgpetclinic.model.Vet;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import services.OwnerService;
-import services.VetService;
-import services.map.OwnerMapService;
-import services.map.VetMapService;
+import marek.makuch.sfgpetclinic.services.OwnerService;
+import marek.makuch.sfgpetclinic.services.VetService;
 
 //when context is ready call run method of this class
 
@@ -20,9 +18,10 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataLoader() {
-        ownerService = new OwnerMapService();
-        vetService = new VetMapService();
+
+    public DataLoader(OwnerService ownerMapService, VetService vetMapService) {
+        this.ownerService = ownerMapService;
+        this.vetService = vetMapService;
     }
 
     @Override

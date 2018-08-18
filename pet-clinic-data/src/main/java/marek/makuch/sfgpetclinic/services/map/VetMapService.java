@@ -1,13 +1,15 @@
-package services.map;
+package marek.makuch.sfgpetclinic.services.map;
 /*
  * @author Marecki
  */
 
-import model.Vet;
-import services.VetService;
+import marek.makuch.sfgpetclinic.model.Vet;
+import org.springframework.stereotype.Service;
+import marek.makuch.sfgpetclinic.services.VetService;
 
 import java.util.Set;
 
+@Service
 public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
     @Override
     public Set<Vet> findAll() {

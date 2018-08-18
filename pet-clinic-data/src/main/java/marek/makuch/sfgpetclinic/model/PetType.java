@@ -1,4 +1,4 @@
-package model;
+package marek.makuch.sfgpetclinic.model;
 /*
  * @author Marecki
  */

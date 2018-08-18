@@ -1,4 +1,4 @@
-package services;
+package marek.makuch.sfgpetclinic.services;
 /*
  * @author Marecki
  */

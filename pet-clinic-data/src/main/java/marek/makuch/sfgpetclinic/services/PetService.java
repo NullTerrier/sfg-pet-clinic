@@ -1,9 +1,9 @@
-package services;
+package marek.makuch.sfgpetclinic.services;
 /*
  * @author Marecki
  */
 
-import model.Pet;
+import marek.makuch.sfgpetclinic.model.Pet;
 
 public interface PetService extends CrudService<Pet, Long> {
 

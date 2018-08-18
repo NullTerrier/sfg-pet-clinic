@@ -1,16 +1,18 @@
-package services.map;
+package marek.makuch.sfgpetclinic.services.map;
 /*
  * @author Marecki
  */
 
-import model.Owner;
-import services.OwnerService;
+import marek.makuch.sfgpetclinic.model.Owner;
+import org.springframework.stereotype.Service;
+import marek.makuch.sfgpetclinic.services.OwnerService;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Service
 public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override

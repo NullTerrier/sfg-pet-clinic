@@ -1,13 +1,15 @@
-package services.map;
+package marek.makuch.sfgpetclinic.services.map;
 /*
  * @author Marecki
  */
 
-import model.Pet;
-import services.PetService;
+import marek.makuch.sfgpetclinic.model.Pet;
+import org.springframework.stereotype.Service;
+import marek.makuch.sfgpetclinic.services.PetService;
 
 import java.util.Set;
 
+@Service
 public class PetMapService extends AbstractMapService<Pet, Long> implements PetService {
 
     @Override
