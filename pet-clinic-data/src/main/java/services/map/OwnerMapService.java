@@ -3,12 +3,13 @@ package services.map;
  * @author Marecki
  */
 
-import com.sun.xml.internal.bind.v2.model.core.ID;
 import model.Owner;
-import services.CrudService;
 import services.OwnerService;
 
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
@@ -39,6 +40,9 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
 
     @Override
     public Owner findByLastName(String lastName) {
-        return null;
+        List<Map.Entry<Long, Owner>> found = super.map.entrySet().stream()
+                .filter(e -> e.getValue().getLastName().equals(lastName))
+                .collect(Collectors.toList());
+        return (Owner) found.get(0);
     }
 }
