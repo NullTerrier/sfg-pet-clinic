@@ -17,6 +17,7 @@
     </tr>
     </thead>
     <tbody>
+    <!--/*@thymesVar id="owners" type="marek.makuch.sfgpetclinic.model.Owner"*/-->
     <tr th:each="owner : ${owners}">
         <th th:text="${owner.id}">1</th>
         <th th:text="${owner.firstName}">John</th>
