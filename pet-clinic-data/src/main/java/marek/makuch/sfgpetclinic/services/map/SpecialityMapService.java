@@ -5,9 +5,11 @@ package marek.makuch.sfgpetclinic.services.map;
 
 import marek.makuch.sfgpetclinic.model.Speciality;
 import marek.makuch.sfgpetclinic.services.SpecialityService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class SpecialityMapService extends AbstractMapService<Speciality, Long> implements SpecialityService {
 
     @Override
