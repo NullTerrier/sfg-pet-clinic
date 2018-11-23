@@ -4,12 +4,9 @@ package marek.makuch.sfgpetclinic.bootstrap;
  */
 
 import marek.makuch.sfgpetclinic.model.*;
-import marek.makuch.sfgpetclinic.services.PetTypeService;
-import marek.makuch.sfgpetclinic.services.SpecialityService;
+import marek.makuch.sfgpetclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import marek.makuch.sfgpetclinic.services.OwnerService;
-import marek.makuch.sfgpetclinic.services.VetService;
 
 import java.time.LocalDate;
 
@@ -22,13 +19,15 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
 
 
-    public DataLoader(OwnerService ownerMapService, VetService vetMapService, PetTypeService petTypeService, SpecialityService specialityService) {
-        this.ownerService = ownerMapService;
-        this.vetService = vetMapService;
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService, VisitService visitService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -121,5 +120,20 @@ public class DataLoader implements CommandLineRunner {
         vetService.save(vet2);
 
         System.out.println("Loaded vets...");
+
+        Visit visit1 = new Visit();
+        visit1.setPet(fionasPet);
+        visit1.setDescription("A little purring and blurring with a burrito cat");
+        visit1.setDate(LocalDate.of(2018, 12, 12));
+
+        visitService.save(visit1);
+
+        Visit visit2 = new Visit();
+        visit2.setPet(mikesPet);
+        visit2.setDescription("Patting a litte doggie on the head");
+        visit2.setDate(LocalDate.of(2018, 12, 13));
+
+        visitService.save(visit2);
+
     }
 }
