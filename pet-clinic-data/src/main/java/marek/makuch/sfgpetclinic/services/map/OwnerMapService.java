@@ -7,6 +7,7 @@ import marek.makuch.sfgpetclinic.model.Owner;
 import marek.makuch.sfgpetclinic.model.Pet;
 import marek.makuch.sfgpetclinic.services.PetService;
 import marek.makuch.sfgpetclinic.services.PetTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import marek.makuch.sfgpetclinic.services.OwnerService;
 
@@ -16,6 +17,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
+@Profile({"default", "map"})
 public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
     private final PetTypeService petTypeService;

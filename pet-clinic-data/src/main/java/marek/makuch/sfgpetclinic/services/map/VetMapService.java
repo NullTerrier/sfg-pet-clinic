@@ -5,12 +5,14 @@ package marek.makuch.sfgpetclinic.services.map;
 
 import marek.makuch.sfgpetclinic.model.Vet;
 import marek.makuch.sfgpetclinic.services.SpecialityService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import marek.makuch.sfgpetclinic.services.VetService;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
 
     private final SpecialityService specialityService;

@@ -5,11 +5,13 @@ package marek.makuch.sfgpetclinic.services.map;
 
 import marek.makuch.sfgpetclinic.model.PetType;
 import marek.makuch.sfgpetclinic.services.PetTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class PetTypeMapService extends AbstractMapService<PetType, Long> implements PetTypeService {
 
 
