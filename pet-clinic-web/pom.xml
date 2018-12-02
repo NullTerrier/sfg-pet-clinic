@@ -125,6 +125,7 @@
                         <artifactId>bootstrap</artifactId>
                         <version>${webjars-bootstrap.version}</version>
                     </dependency>
+
                 </dependencies>
             </plugin>
 
