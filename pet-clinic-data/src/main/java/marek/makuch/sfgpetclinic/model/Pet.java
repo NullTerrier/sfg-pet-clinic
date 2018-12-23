@@ -6,8 +6,12 @@ package marek.makuch.sfgpetclinic.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.InputStream;
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Setter
@@ -18,6 +22,7 @@ import java.util.Set;
 @Table(name = "pets")
 public class Pet extends BaseEntity {
 
+
     @Builder
     public Pet(Long id, PetType petType, Owner owner, LocalDate birthDate, Set<Visit> visits, String name) {
         super(id);
@@ -25,7 +30,7 @@ public class Pet extends BaseEntity {
         this.owner = owner;
         this.birthDate = birthDate;
         this.visits = visits;
-        this.name = name;
+
     }
 
     @ManyToOne
