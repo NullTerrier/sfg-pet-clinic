@@ -5,12 +5,9 @@ package marek.makuch.sfgpetclinic.controllers;
 
 import marek.makuch.sfgpetclinic.model.Owner;
 import marek.makuch.sfgpetclinic.model.PetType;
-import marek.makuch.sfgpetclinic.repositories.OwnerRepository;
-import marek.makuch.sfgpetclinic.repositories.PetRepository;
 import marek.makuch.sfgpetclinic.services.OwnerService;
 import marek.makuch.sfgpetclinic.services.PetService;
 import marek.makuch.sfgpetclinic.services.PetTypeService;
-import org.checkerframework.checker.units.qual.C;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
