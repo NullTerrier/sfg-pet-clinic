@@ -9,6 +9,7 @@ import marek.makuch.sfgpetclinic.model.PetType;
 import marek.makuch.sfgpetclinic.services.OwnerService;
 import marek.makuch.sfgpetclinic.services.PetService;
 import marek.makuch.sfgpetclinic.services.PetTypeService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -45,6 +46,11 @@ public class PetController {
         return ownerService.findById(ownerId);
     }
 
+//    @ModelAttribute("pet")
+//    public Pet findPet(@PathVariable("petId") Long petId) {
+//        return petService.findById(petId);
+//    }
+
     @InitBinder("owner")
     public void initOwnerBinder(WebDataBinder dataBinder) {
         dataBinder.setDisallowedFields("id");
@@ -73,7 +79,28 @@ public class PetController {
 
         } else {
             petService.save(pet);
-            return "redirect:/owners/{ownerId}";
+            return "redirect:/owners/" + owner.getId();
+        }
+
+    }
+
+    @GetMapping("/pets/{petId}/edit")
+    public String initUpdateForm(@PathVariable("petId") Long petId, Model model) {
+        final Pet pet = petService.findById(petId);
+        model.addAttribute("pet", pet);
+        return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
+    }
+
+    @PostMapping("pets/{petId}/edit")
+    public String processUpdateForm(@Valid Pet pet, BindingResult result, Owner owner, Model model) {
+        if (result.hasErrors()) {
+            pet.setOwner(owner);
+            model.addAttribute("pet", pet);
+            return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
+        } else {
+            owner.addPet(pet);
+            petService.save(pet);
+            return "redirect:/owners/" + owner.getId();
         }
 
     }
